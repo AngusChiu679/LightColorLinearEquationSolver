@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light Color Linear Equation Solver</title>
+    <title>Linear Equation Solver</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -36,7 +36,7 @@
             width: 150px;
             padding: 12px;
             font-size: 1rem;
-            font-family: 'Roboto', sans-serif; /* Ensuring the input font matches the header */
+            font-family: 'Roboto', sans-serif;
             margin-right: 10px;
             border: 2px solid #ccc;
             border-radius: 5px;
@@ -53,10 +53,17 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 5px;
         }
         button:hover {
             background-color: #66bb6a;
             transform: scale(1.05);
+        }
+        #reset-button {
+            background-color: #ff7043;
+        }
+        #reset-button:hover {
+            background-color: #ff5722;
         }
         #result {
             margin-top: 20px;
@@ -69,7 +76,7 @@
 </head>
 <body>
 
-    <h1>Light Color Linear Equation Solver</h1>
+    <h1>Linear Equation Solver</h1>
     <div class="form-group">
         <label>First Equation (a1 * x + b1 * y = c1)</label>
         <label>a1: <input type="number" id="a1"></label>
@@ -86,6 +93,7 @@
 
     <div style="text-align: center;">
         <button onclick="calculate()">Calculate</button>
+        <button id="reset-button" onclick="resetFields()">Reset</button>
     </div>
     <div id="result"></div>
 
@@ -111,6 +119,16 @@
             const y = Dy / D;
 
             document.getElementById('result').innerText = `x = ${x.toFixed(2)}, y = ${y.toFixed(2)}`;
+        }
+
+        function resetFields() {
+            document.getElementById('a1').value = '';
+            document.getElementById('b1').value = '';
+            document.getElementById('c1').value = '';
+            document.getElementById('a2').value = '';
+            document.getElementById('b2').value = '';
+            document.getElementById('c2').value = '';
+            document.getElementById('result').innerText = '';
         }
     </script>
 
